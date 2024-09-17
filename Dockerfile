@@ -1,5 +1,5 @@
 # Use the official Go image as the base image
-FROM golang:1.23-buster AS build
+FROM golang:1.20-buster AS build
 
 # Set the working directory inside the container
 WORKDIR /app
