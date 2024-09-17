@@ -57,7 +57,7 @@ func (a *App) setupDb() {
 	defer cancel()
 	client, err := mongo.Connect(ctx,
 		// options.Client().ApplyURI("mongodb://localhost:27017"))
-		options.Client().ApplyURI("mongodb+srv://root:UpzqiQtZAoD1ndna@quiz.2exay.mongodb.net"))
+		options.Client().ApplyURI("mongodb://172.16.202.63:27017"))
 	if err != nil {
 		panic(err)
 	}
