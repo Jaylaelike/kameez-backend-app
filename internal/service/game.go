@@ -279,11 +279,10 @@ func (g *Game) isCorrectChoice(choiceIndex int) bool {
 
 func (g *Game) getPointsReward() int {
 	answered := len(g.getAnsweredPlayers())
-	orderReward := 100 - (1000 * math.Min(4, float64(answered)))
+	orderReward := 5000 - (1000 * math.Min(4, float64(answered)))
 	timeReward := g.Time * (1000 / 60)
-	initialPoints := 100
 
-	return initialPoints + int(orderReward) + timeReward
+	return int(orderReward) + timeReward
 }
 
 func (g *Game) OnPlayerAnswer(choice int, player *Player) {
