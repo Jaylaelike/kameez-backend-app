@@ -36,13 +36,12 @@ func (a *App) setupHttp() {
 	app := fiber.New()
 	app.Use(cors.New())
 
-
-	// http://172.16.202.63:3004/api/quizzes
+	
 
 	quizController := controller.Quiz(a.quizService)
-	app.Get("http://172.16.202.63:3004/api/quizzes", quizController.GetQuizzes)
-	app.Get("http://172.16.202.63:3004/api/quizzes/:quizId", quizController.GetQuizById)
-	app.Put("http://172.16.202.63:3004/api/quizzes/:quizId", quizController.UpdateQuizById)
+	app.Get("/api/quizzes", quizController.GetQuizzes)
+	app.Get("/api/quizzes/:quizId", quizController.GetQuizById)
+	app.Put("/api/quizzes/:quizId", quizController.UpdateQuizById)
 
 	wsController := controller.Ws(a.netService)
 	app.Get("/ws", websocket.New(wsController.Ws))
